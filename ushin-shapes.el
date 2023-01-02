@@ -26,11 +26,12 @@
 
 ;;; Commentary:
 
-;; Replace org bullets in headings which have been tagged with an ushin shape keyword.
+;; ushin-shapes.el replaces ushin tags with ushin shapes
+;; (https://ushin.org/#shapes) in org documents.
 
 ;;;; Usage
 
-;; Turn `ushin-shapes-mode' in all buffers
+;; Use `ushin-shapes-mode' in all org buffers
 ;; (global-ushin-shapes-mode +1)
 
 ;;; Code:
@@ -39,7 +40,7 @@
 (require 'svg-tag-mode)
 
 (defgroup ushin-shapes nil
-  "Replace org bullets with shapes corresponding to ushin keywords."
+  "Replace ushin tags with shapes corresponding to ushin keywords."
   :group 'convenience
   :prefix "ushin-shapes-")
 
@@ -47,7 +48,7 @@
 
 (defun ushin-shapes--build-tag (shape)
   "Build `svg-tag-mode' tag from SHAPE."
-  `(,(concat "^\\(*+\\) .*:" shape ":") .
+  `(,(concat ":\\(" shape "\\):") .
     ((lambda (tag) (svg-lib-icon ,shape '(:background "transparent"
                                                       :padding 0
                                                       :stroke 0
