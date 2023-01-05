@@ -29,6 +29,11 @@
 ;; ushin-shapes.el replaces ushin tags with ushin shapes
 ;; (https://ushin.org/#shapes) in org documents.
 
+;; FIXME: This package causes serious performance issues when editing
+;; headlines with ushin tags. We need to either make it snappier or
+;; suggest that users only use `ushin-shapes-mode' in read-only
+;; buffers.
+
 ;;;; Usage
 
 ;; Use `ushin-shapes-mode' in all org buffers
