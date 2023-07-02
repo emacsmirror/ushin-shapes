@@ -77,12 +77,14 @@
   ;; FIXME: Instead of removing the hook, we should restore the previous value
   (remove-hook 'org-mode-hook #'svg-tag-mode))
 
+;;;###autoload
 (define-minor-mode ushin-shapes-mode
   "Minor mode to replace ushin tags with shapes."
   (if ushin-shapes-mode
       (ushin-shapes-mode-on)
     (ushin-shapes-mode-off)))
 
+;;;###autoload
 (define-globalized-minor-mode
   global-ushin-shapes-mode ushin-shapes-mode ushin-shapes-mode-on)
 
