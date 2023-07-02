@@ -69,10 +69,9 @@
         (cl-pushnew '("ushin" . "https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
         (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
               (ushin-shapes-tags))
-        (add-hook 'org-mode-hook #'svg-tag-mode))
+        (svg-tag-mode))
     (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes-tags) :test #'equal))
-    ;; FIXME: Instead of removing the hook, we should restore the previous value
-    (remove-hook 'org-mode-hook #'svg-tag-mode)))
+    (svg-tag-mode -1)))
 
 ;;;###autoload
 (define-globalized-minor-mode
