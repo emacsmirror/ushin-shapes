@@ -74,8 +74,9 @@
     (svg-tag-mode -1)))
 
 ;;;###autoload
-(define-globalized-minor-mode
-  global-ushin-shapes-mode ushin-shapes-mode ushin-shapes-mode-on)
+(define-globalized-minor-mode global-ushin-shapes-mode ushin-shapes-mode
+  (lambda () (ushin-shapes-mode 1))
+  :group 'ushin-shapes)
 
 (provide 'ushin-shapes)
 ;;; ushin-shapes.el ends here
