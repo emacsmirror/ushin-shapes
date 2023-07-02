@@ -63,7 +63,7 @@
                                    :padding 0
                                    :stroke 0
                                    :height 1
-                                   :scale 1
+                                   :scale 0.8
                                    :collection "ushin"))))))
 
 (defun ushin-shapes-tags ()
