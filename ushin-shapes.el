@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2022-23 Joseph Turner
 
-;; Author: Joseph Turner <joseph@breatheoutbreathe.in>
-;; URL: https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el
+;; Author: Joseph Turner <joseph@ushin.org>
+;; URL: https://git.sr.ht/~ushin/ushin-shapes.el
 ;; Version: 0.2.0
 ;; Package-Requires: ((emacs "27.1") (svg-tag-mode "0.3.2") (svg-lib "0.2.5"))
 
@@ -76,7 +76,7 @@
   :lighter " ushin-shapes"
   (if ushin-shapes-mode
       (when (derived-mode-p 'org-mode)
-        (cl-pushnew '("ushin" . "https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
+        (cl-pushnew '("ushin" . "https://git.sr.ht/~ushin/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
         (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
               (ushin-shapes-tags))
         (svg-tag-mode +1))

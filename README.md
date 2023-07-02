@@ -8,7 +8,7 @@ shapes](https://ushin.org/#shapes) in Org documents.
 Clone this repository:
 
 ```
-git clone https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/ ~/.local/src/ushin-shapes.el/
+git clone https://git.sr.ht/~ushin/ushin-shapes.el/ ~/.local/src/ushin-shapes.el/
 ```
 
 Add the following lines to your init.el file:
