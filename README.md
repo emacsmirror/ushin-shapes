@@ -5,18 +5,12 @@ shapes](https://ushin.org/#shapes) in Org documents.
 
 ## Installation
 
-Clone this repository:
+`ushin-shapes.el` requires
+[Emacs](https://www.gnu.org/software/emacs/) version 27.1 or later.
 
-```
-git clone https://git.sr.ht/~ushin/ushin-shapes.el/ ~/.local/src/ushin-shapes.el/
-```
-
-Add the following lines to your init.el file:
-
-```
-(add-to-list 'load-path "~/.local/src/ushin-shapes.el/")
-(require 'ushin-shapes)
-```
+`ushin-shapes.el` is available on
+[MELPA](https://melpa.org/#/getting-started). Once you've set up MELPA,
+run `M-x package-install` then enter `ushin-shapes`.
 
 ## Usage
 
