@@ -44,7 +44,7 @@
 (require 'svg-lib)
 (require 'svg-tag-mode)
 
-(defconst ushin-shapes '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
+(defconst ushin-shapes-shapes '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
   "List of ushin shapes.")
 
 (defun ushin-shapes--build-tag (shape)
@@ -61,7 +61,7 @@
 
 (defun ushin-shapes--tags ()
   "Return list of ushin `svg-tag-mode' tags."
-  (mapcar #'ushin-shapes--build-tag ushin-shapes))
+  (mapcar #'ushin-shapes--build-tag ushin-shapes-shapes))
 
 (defun ushin-shapes-mode-on ()
   "Activate ushin shapes mode."
