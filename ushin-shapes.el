@@ -5,7 +5,7 @@
 ;; Author: Joseph Turner <joseph@breatheoutbreathe.in>
 ;; URL: https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "27.1") (svg-tag-mode "20220525.1752") (svg-lib "0.2"))
+;; Package-Requires: ((emacs "27.1") (svg-tag-mode "0.3.2") (svg-lib "0.2.5"))
 
 ;; Keywords: convenience
 
