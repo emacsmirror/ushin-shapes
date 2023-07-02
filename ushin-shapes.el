@@ -68,7 +68,8 @@
 (defun ushin-shapes-mode-on ()
   "Activate ushin shapes mode."
   (cl-pushnew '("ushin" . "https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
-  (cl-pushnew (ushin-shapes--tags) svg-tag-tags :test #'equal)
+  (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
+        (ushin-shapes--tags))
   (add-hook 'org-mode-hook #'svg-tag-mode))
 
 (defun ushin-shapes-mode-off ()
