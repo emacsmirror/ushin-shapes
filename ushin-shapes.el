@@ -40,6 +40,15 @@
 (require 'svg-lib)
 (require 'svg-tag-mode)
 
+(defgroup ushin-shapes nil
+  "Replace ushin tags with shapes corresponding to ushin keywords."
+  :group 'convenience
+  :prefix "ushin-shapes-")
+
+(defcustom ushin-shapes-foreground-color "purple"
+  "Foreground color for SVG shapes."
+  :type 'color)
+
 (defconst ushin-shapes-shapes
   '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
   "List of ushin shapes.")
@@ -49,7 +58,8 @@
   `(,(concat ":\\(" shape "\\):") .
     ((lambda (tag)
        (svg-lib-icon ,shape
-                     '(:background "transparent"
+                     `(:background "transparent"
+                                   :foreground ,ushin-shapes-foreground-color
                                    :padding 0
                                    :stroke 0
                                    :height 1
