@@ -44,11 +44,6 @@
 (require 'svg-lib)
 (require 'svg-tag-mode)
 
-(defgroup ushin-shapes nil
-  "Replace ushin tags with shapes corresponding to ushin keywords."
-  :group 'convenience
-  :prefix "ushin-shapes-")
-
 (defconst ushin-shapes '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
   "List of ushin shapes.")
 
@@ -82,7 +77,6 @@
 
 (define-minor-mode ushin-shapes-mode
   "Minor mode for graphical tag as rounded box."
-  :group 'ushin-shapes
   (if ushin-shapes-mode
       (ushin-shapes-mode-on)
     (ushin-shapes-mode-off)))
