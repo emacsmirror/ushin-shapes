@@ -49,17 +49,20 @@
   :group 'convenience
   :prefix "ushin-shapes-")
 
-(defconst ushin-shapes '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people") "List of ushin shapes.")
+(defconst ushin-shapes '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
+  "List of ushin shapes.")
 
 (defun ushin-shapes--build-tag (shape)
   "Build `svg-tag-mode' tag from SHAPE."
   `(,(concat ":\\(" shape "\\):") .
-    ((lambda (tag) (svg-lib-icon ,shape '(:background "transparent"
-                                                      :padding 0
-                                                      :stroke 0
-                                                      :height 1
-                                                      :scale 1
-                                                      :collection "ushin"))))))
+    ((lambda (tag)
+       (svg-lib-icon ,shape
+                     '(:background "transparent"
+                                   :padding 0
+                                   :stroke 0
+                                   :height 1
+                                   :scale 1
+                                   :collection "ushin"))))))
 
 (defun ushin-shapes--tags ()
   "Return list of ushin `svg-tag-mode' tags."
