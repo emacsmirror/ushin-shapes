@@ -79,10 +79,12 @@
         (cl-pushnew '("ushin" . "https://git.sr.ht/~ushin/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
         (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
               (ushin-shapes-tags))
-        (svg-tag-mode +1))
+        (svg-tag-mode +1)
+        (add-hook 'text-scale-mode-hook #'ushin-shapes-mode))
     (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes-tags)
                                           :test #'equal :key #'car))
-    (svg-tag-mode -1)))
+    (svg-tag-mode -1)
+    (remove-hook 'text-scale-mode-hook #'ushin-shapes-mode)))
 
 ;;;###autoload
 (define-globalized-minor-mode global-ushin-shapes-mode ushin-shapes-mode
