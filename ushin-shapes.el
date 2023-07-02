@@ -73,8 +73,7 @@
 
 (defun ushin-shapes-mode-off ()
   "Deactivate ushin shapes mode."
-  (dolist (tag (ushin-shapes--tags))
-    (setq svg-tag-tags (delete tag svg-tag-tags)))
+  (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes--tags) :test #'equal))
   ;; FIXME: Instead of removing the hook, we should restore the previous value
   (remove-hook 'org-mode-hook #'svg-tag-mode))
 
