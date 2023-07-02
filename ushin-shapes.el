@@ -41,6 +41,7 @@
 
 ;;; Code:
 
+(require 'cl-lib)
 (require 'svg-lib)
 (require 'svg-tag-mode)
 
