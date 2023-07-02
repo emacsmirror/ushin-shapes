@@ -1,4 +1,4 @@
-;;; ushin-shapes.el --- ushin shapes in org-mode -*- lexical-binding: t -*-
+;;; ushin-shapes.el --- USHIN shapes in org-mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-23 Joseph Turner
 
