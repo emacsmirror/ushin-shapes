@@ -70,7 +70,8 @@
         (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
               (ushin-shapes-tags))
         (svg-tag-mode +1))
-    (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes-tags) :test #'equal))
+    (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes-tags)
+                                          :test #'equal :key #'car))
     (svg-tag-mode -1)))
 
 ;;;###autoload
