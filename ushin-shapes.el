@@ -63,6 +63,7 @@
 ;;;###autoload
 (define-minor-mode ushin-shapes-mode
   "Minor mode to replace ushin tags with shapes."
+  :lighter " ushin-shapes"
   (if ushin-shapes-mode
       (progn
         (cl-pushnew '("ushin" . "https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
