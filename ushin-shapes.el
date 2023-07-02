@@ -73,7 +73,9 @@
 (defun ushin-shapes-mode-off ()
   "Deactivate ushin shapes mode."
   (dolist (tag (ushin-shapes--tags))
-    (setq svg-tag-tags (delete tag svg-tag-tags))))
+    (setq svg-tag-tags (delete tag svg-tag-tags)))
+  ;; FIXME: Instead of removing the hook, we should restore the previous value
+  (remove-hook 'org-mode-hook #'svg-tag-mode))
 
 (define-minor-mode ushin-shapes-mode
   "Minor mode for graphical tag as rounded box."
