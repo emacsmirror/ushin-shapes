@@ -32,7 +32,7 @@
 ;;;; Usage
 
 ;; Use `ushin-shapes-mode' in all org buffers
-;; (global-ushin-shapes-mode +1)
+;; (global-ushin-shapes-mode)
 
 ;;; Code:
 
