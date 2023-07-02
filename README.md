@@ -1,15 +1,7 @@
 # ushin-shapes.el
 
 `ushin-shapes.el` replaces ushin tags with [ushin
-shapes](https://ushin.org/#shapes) in org documents.
-
-### Dependencies
-
-Nicolas Rougier's
-[svg-tag-mode.el](https://github.com/rougier/svg-tag-mode) and
-[svg-lib.el](https://github.com/rougier/svg-lib) make it easy to
-replace tags with SVGs. Both packages can be installed from GNU ELPA
-with `package-install` command.
+shapes](https://ushin.org/#shapes) in Org documents.
 
 ## Installation
 
@@ -28,8 +20,27 @@ Add the following lines to your init.el file:
 
 ## Usage
 
-Use `ushin-shapes-mode` in all org buffers:
+In an Org buffer, tag some headings with USHIN shapes like so:
 
 ```
-(global-ushin-shapes-mode +1)
+* I'm excited to use Org files for community deliberation  :feelings:
+** The USHIN shapes are helpful for clear communication    :thoughts:
+```
+
+Run `M-x ushin-shapes-mode` to see `:feelings:` replaced with the
+heart shape:
+
+![demo-light.png](./img/demo-light.png)
+
+The SVG foreground color is customizable as
+`ushin-shapes-foreground-color`, so you can set it to match your
+theme:
+
+![demo-dark.png](./img/demo-dark.png)
+
+Or add the following line to your `init.el` file to use
+`ushin-shapes-mode` in all Org buffers:
+
+```
+(global-ushin-shapes-mode)
 ```
