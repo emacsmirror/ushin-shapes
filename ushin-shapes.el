@@ -65,25 +65,18 @@
   "Return list of ushin `svg-tag-mode' tags."
   (mapcar #'ushin-shapes--build-tag ushin-shapes-shapes))
 
-(defun ushin-shapes-mode-on ()
-  "Activate ushin shapes mode."
-  (cl-pushnew '("ushin" . "https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
-  (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
-        (ushin-shapes--tags))
-  (add-hook 'org-mode-hook #'svg-tag-mode))
-
-(defun ushin-shapes-mode-off ()
-  "Deactivate ushin shapes mode."
-  (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes--tags) :test #'equal))
-  ;; FIXME: Instead of removing the hook, we should restore the previous value
-  (remove-hook 'org-mode-hook #'svg-tag-mode))
-
 ;;;###autoload
 (define-minor-mode ushin-shapes-mode
   "Minor mode to replace ushin tags with shapes."
   (if ushin-shapes-mode
-      (ushin-shapes-mode-on)
-    (ushin-shapes-mode-off)))
+      (progn
+        (cl-pushnew '("ushin" . "https://git.sr.ht/~breatheoutbreathein/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
+        (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
+              (ushin-shapes--tags))
+        (add-hook 'org-mode-hook #'svg-tag-mode))
+    (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes--tags) :test #'equal))
+    ;; FIXME: Instead of removing the hook, we should restore the previous value
+    (remove-hook 'org-mode-hook #'svg-tag-mode)))
 
 ;;;###autoload
 (define-globalized-minor-mode
