@@ -78,7 +78,7 @@
   (remove-hook 'org-mode-hook #'svg-tag-mode))
 
 (define-minor-mode ushin-shapes-mode
-  "Minor mode for graphical tag as rounded box."
+  "Minor mode to replace ushin tags with shapes."
   (if ushin-shapes-mode
       (ushin-shapes-mode-on)
     (ushin-shapes-mode-off)))
