@@ -38,3 +38,16 @@ to your `init.el` file to use `ushin-shapes-mode` in all Org buffers:
 ```
 (global-ushin-shapes-mode)
 ```
+
+## Bugs and Patches
+
+Bugs can be submitted to the [ushin issue tracker](https://todo.sr.ht/~ushin/ushin). Patches, comments or
+questions can be submitted to the [ushin public inbox](https://lists.sr.ht/~ushin/ushin).
+
+## Chat Room
+
+You're welcome to join our public XMPP chat
+room!
+
+- `xmpp:discuss@conference.ushin.org` ([Join anonymously from your browser](https://anonymous.cheogram.com/discuss@conference.ushin.org))
+- `#xmpp_discuss_conference.ushin.org:matrix.org` (Matrix bridge)
