@@ -1,7 +1,40 @@
 # ushin-shapes.el
 
 `ushin-shapes.el` replaces ushin tags with [ushin
-shapes](https://ushin.org/#shapes) in Org documents.
+shapes](https://ushin.org/#shapes) in Org documents:
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>:facts:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/facts.png" alt="facts.png" /></td>
+    </tr>
+    <tr>
+      <td><code>:thoughts:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/thoughts.png" alt="thoughts.png" /></td>
+    </tr>
+    <tr>
+      <td><code>:feelings:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/feelings.png" alt="feelings.png" /></td>
+    </tr>
+    <tr>
+      <td><code>:needs:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/needs.png" alt="needs.png" /></td>
+    </tr>
+    <tr>
+      <td><code>:topics:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/topics.png" alt="topics.png" /></td>
+    </tr>
+    <tr>
+      <td><code>:actions:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/actions.png" alt="actions.png" /></td>
+    </tr>
+    <tr>
+      <td><code>:people:</code></td>
+      <td><img src="/~ushin/ushin-shapes.el/blob/master/img/people.png" alt="people.png" /></td>
+    </tr>
+  </tbody>
+</table>
 
 In an Org buffer, tag some headings with USHIN shapes like so:
 
