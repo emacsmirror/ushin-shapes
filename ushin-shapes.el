@@ -53,6 +53,10 @@
   '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
   "List of ushin shapes.")
 
+(defconst ushin-shapes-icon-collection
+  "https://git.sr.ht/~ushin/ushin-shapes.el/blob/master/shapes/%s.svg"
+  "Base-url of the ushin icon collection.")
+
 (defun ushin-shapes--build-tag (shape)
   "Build `svg-tag-mode' tag from SHAPE."
   `(,(concat ":\\(" shape "\\):") .
@@ -76,7 +80,8 @@
   :lighter " ushin-shapes"
   (if ushin-shapes-mode
       (when (derived-mode-p 'org-mode)
-        (cl-pushnew '("ushin" . "https://git.sr.ht/~ushin/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
+        (cl-pushnew (cons "ushin" ushin-shapes-icon-collection)
+                    svg-lib-icon-collections :test #'equal)
         (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
               (ushin-shapes-tags))
         (svg-tag-mode +1)
