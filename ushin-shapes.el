@@ -62,13 +62,13 @@
   `(,(concat ":\\(" shape "\\):") .
     ((lambda (tag)
        (svg-lib-icon ,shape
-                     `(:background "transparent"
-                                   :foreground ,ushin-shapes-foreground-color
-                                   :padding 0
-                                   :stroke 0
-                                   :height 1
-                                   :scale 0.8
-                                   :collection "ushin"))))))
+                     `( :background "transparent"
+                        :foreground ,ushin-shapes-foreground-color
+                        :padding 0
+                        :stroke 0
+                        :height 1
+                        :scale 0.8
+                        :collection "ushin"))))))
 
 (defun ushin-shapes-tags ()
   "Return list of ushin `svg-tag-mode' tags."
