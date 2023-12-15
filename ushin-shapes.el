@@ -100,4 +100,7 @@
   :group 'ushin-shapes)
 
 (provide 'ushin-shapes)
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
 ;;; ushin-shapes.el ends here
