@@ -79,8 +79,8 @@
   (cond (ushin-shapes-mode
          (cl-pushnew (cons "ushin" ushin-shapes-icon-collection)
                      svg-lib-icon-collections :test #'equal)
-         (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
-               (ushin-shapes-tags))
+         (dolist (tag (ushin-shapes-tags))
+           (cl-pushnew tag svg-tag-tags :test #'equal))
          (svg-tag-mode +1)
          (add-hook 'text-scale-mode-hook #'ushin-shapes-mode))
         (t
