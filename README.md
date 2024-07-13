@@ -69,7 +69,7 @@ Run `M-x ushin-shapes-mode` in an Org buffer or add the following line
 to your `init.el` file to use `ushin-shapes-mode` in all Org buffers:
 
 ```
-(global-ushin-shapes-mode)
+(global-ushin-shapes-mode +1)
 ```
 
 ## Bugs and Patches
