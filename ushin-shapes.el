@@ -97,7 +97,7 @@
 
 ;;;###autoload
 (define-globalized-minor-mode global-ushin-shapes-mode ushin-shapes-mode
-  #'ushin-shapes-mode--turn-on
+  ushin-shapes-mode--turn-on
   :group 'ushin-shapes)
 
 (provide 'ushin-shapes)
