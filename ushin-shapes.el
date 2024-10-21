@@ -5,7 +5,7 @@
 ;; Author: Joseph Turner <joseph@ushin.org>
 ;; URL: https://git.sr.ht/~ushin/ushin-shapes.el
 ;; Version: 0.3-pre
-;; Package-Requires: ((emacs "27.1") (svg-tag-mode "0.3.3") (svg-lib "0.3"))
+;; Package-Requires: ((emacs "27.1") (svg-tag-mode "0.3.3") (svg-lib "0.3") (compat "30.0.0.0"))
 
 ;; Keywords: convenience
 
@@ -37,6 +37,7 @@
 (require 'cl-lib)
 (require 'svg-lib)
 (require 'svg-tag-mode)
+(require 'compat)
 
 (defgroup ushin-shapes nil
   "Replace ushin tags with shapes corresponding to ushin keywords."
@@ -45,7 +46,17 @@
 
 (defcustom ushin-shapes-foreground-color "purple"
   "Foreground color for SVG shapes."
-  :type 'color)
+  :type 'color
+  :set (lambda (option value)
+         (set-default option value)
+         ;; Re-enable `ushin-shapes-mode' to apply newly chosen color.
+         (dolist (ushin-shapes-buffer
+                  (match-buffers
+                   (lambda (buf _arg)
+                     (buffer-local-value 'ushin-shapes-mode buf))))
+           (with-current-buffer ushin-shapes-buffer
+             (ushin-shapes-mode -1)
+             (ushin-shapes-mode +1)))))
 
 (defconst ushin-shapes-shapes
   '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
