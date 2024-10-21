@@ -1,0 +1,9 @@
+|------------+------------------------|
+| ~:facts:~    | [[./img/facts.png]]    |
+| ~:thoughts:~ | [[./img/thoughts.png]] |
+| ~:feelings:~ | [[./img/feelings.png]] |
+| ~:needs:~    | [[./img/needs.png]]    |
+| ~:topics:~   | [[./img/topics.png]]   |
+| ~:actions:~  | [[./img/actions.png]]  |
+| ~:people:~   | [[./img/people.png]]   |
+|------------+------------------------|
