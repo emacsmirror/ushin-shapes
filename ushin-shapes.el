@@ -1,6 +1,6 @@
 ;;; ushin-shapes.el --- USHIN shapes in org-mode -*- lexical-binding: t -*-
 
-;; Copyright (C) 2022-23 Joseph Turner
+;; Copyright (C) 2022-24 Joseph Turner
 
 ;; Author: Joseph Turner <joseph@ushin.org>
 ;; URL: https://git.sr.ht/~ushin/ushin-shapes.el
