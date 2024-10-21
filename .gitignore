@@ -1,0 +1,8 @@
+/*.elc
+/.sandbox/
+/.dir-locals-2.el
+*.elc
+/worktrees/
+/ushin-shapes-autoloads.el
+/ushin-shapes-pkg.el
+/dir
