@@ -84,3 +84,7 @@ room!
 
 - `xmpp:discuss@conference.ushin.org` ([Join anonymously from your browser](https://anonymous.cheogram.com/discuss@conference.ushin.org))
 - `#_bifrost_discuss_conference.ushin.org:aria-net.org` (Matrix bridge)
+
+## Acknowledgements
+
+- [Jonas Bernoulli](https://emacsair.me/) for fixing the `svg-tag-mode` syntax.
