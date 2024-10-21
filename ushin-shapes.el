@@ -26,13 +26,11 @@
 
 ;;; Commentary:
 
-;; ushin-shapes.el replaces ushin tags with ushin shapes
-;; (https://ushin.org/#shapes) in org documents.
+;; This package replaces ushin tags with ushin shapes in org documents.
+;; See https://ushin.org/#shapes to learn about ushin shapes.
 
-;;;; Usage
-
-;; Use `ushin-shapes-mode' in all org buffers
-;; (global-ushin-shapes-mode)
+;; To use `ushin-shapes-mode' in all org buffers enable
+;; `global-ushin-shapes-mode'.
 
 ;;; Code:
 
@@ -53,18 +51,23 @@
   '("facts" "thoughts" "feelings" "needs" "topics" "actions" "people")
   "List of ushin shapes.")
 
+(defconst ushin-shapes-icon-collection
+  "https://git.sr.ht/~ushin/ushin-shapes.el/blob/master/shapes/%s.svg"
+  "Base-url of the ushin icon collection.")
+
 (defun ushin-shapes--build-tag (shape)
   "Build `svg-tag-mode' tag from SHAPE."
-  `(,(concat ":\\(" shape "\\):") .
-    ((lambda (tag)
-       (svg-lib-icon ,shape
-                     `(:background "transparent"
-                                   :foreground ,ushin-shapes-foreground-color
-                                   :padding 0
-                                   :stroke 0
-                                   :height 1
-                                   :scale 0.8
-                                   :collection "ushin"))))))
+  `(,(format ":\\(%s\\):" shape)
+    (lambda (arg)
+      (svg-lib-icon ,shape nil
+                    :background "transparent"
+                    :foreground ,ushin-shapes-foreground-color
+                    :padding 0
+                    :stroke 0
+                    :height 1
+                    :scale 0.8
+                    :collection "ushin"))
+    nil nil))
 
 (defun ushin-shapes-tags ()
   "Return list of ushin `svg-tag-mode' tags."
@@ -74,22 +77,31 @@
 (define-minor-mode ushin-shapes-mode
   "Minor mode to replace ushin tags with shapes."
   :lighter " ushin-shapes"
-  (if ushin-shapes-mode
-      (when (derived-mode-p 'org-mode)
-        (cl-pushnew '("ushin" . "https://git.sr.ht/~ushin/ushin-shapes.el/blob/master/shapes/%s.svg") svg-lib-icon-collections :test #'equal)
-        (mapc (lambda (tag) (cl-pushnew tag svg-tag-tags :test #'equal))
-              (ushin-shapes-tags))
-        (svg-tag-mode +1)
-        (add-hook 'text-scale-mode-hook #'ushin-shapes-mode))
-    (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes-tags)
-                                          :test #'equal :key #'car))
-    (svg-tag-mode -1)
-    (remove-hook 'text-scale-mode-hook #'ushin-shapes-mode)))
+  (cond (ushin-shapes-mode
+         (cl-pushnew (cons "ushin" ushin-shapes-icon-collection)
+                     svg-lib-icon-collections :test #'equal)
+         (dolist (tag (ushin-shapes-tags))
+           (cl-pushnew tag svg-tag-tags :test #'equal))
+         (svg-tag-mode +1)
+         (add-hook 'text-scale-mode-hook #'ushin-shapes-mode))
+        (t
+         (setf svg-tag-tags (cl-set-difference svg-tag-tags (ushin-shapes-tags)
+                                               :test #'equal :key #'car))
+         (svg-tag-mode -1)
+         (remove-hook 'text-scale-mode-hook #'ushin-shapes-mode))))
+
+(defun ushin-shapes-mode--turn-on ()
+  "Turn on `ushin-shapes-mode' if desired."
+  (when (derived-mode-p 'org-mode)
+    (ushin-shapes-mode 1)))
 
 ;;;###autoload
 (define-globalized-minor-mode global-ushin-shapes-mode ushin-shapes-mode
-  (lambda () (ushin-shapes-mode 1))
+  #'ushin-shapes-mode--turn-on
   :group 'ushin-shapes)
 
 (provide 'ushin-shapes)
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
 ;;; ushin-shapes.el ends here
