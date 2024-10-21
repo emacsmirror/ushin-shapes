@@ -1,0 +1,28 @@
+#+TITLE: ushin-shapes.el Changelog
+#+OPTIONS: num:nil
+
+# All notable changes to [[https://ushin.org/hyperdrive/hyperdrive-manual.html][ushin-shapes.el]] will be documented in this file.
+# This project adheres to [[https://semver.org/spec/v2.0.0.html][Semantic Versioning]].
+
+* 0.3-pre
+
+** Changed
+
+- Allow customization of SVG colors
+
+** Docs
+
+- Add example images to README
+
+** Fixed
+
+- Fix ~svg-tag-mode~ dependency bug (Thanks to [[https://emacsair.me/][Jonas Bernoulli]]!)
+- Other bug fixes
+
+* 0.2 [2023-07-02 Sun]
+
+- Bug fixes
+
+* 0.1 [2022-12-30 Fri]
+
+- Initial release
